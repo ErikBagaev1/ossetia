@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ossetia/HomeDisplay/home_display.dart';
 import 'package:ossetia/Theme/theme.dart';
 
 class BasikDisplayWidget extends StatefulWidget {
@@ -23,7 +24,12 @@ class _BasikDisplayWidgetState extends State<BasikDisplayWidget> {
     return Scaffold(
       body: IndexedStack(
         index: _selectedTab,
-        
+        children: [
+          HomeDisplayWidget(),
+          HomeDisplayWidget(),
+          HomeDisplayWidget(),
+          HomeDisplayWidget(),
+        ],
       ),
       bottomNavigationBar: Container(
         height: 65,
