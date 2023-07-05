@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ossetia/BasikDisplay/basik_display.dart';
+import 'package:ossetia/HomeDisplay/home_about.dart';
 import 'package:ossetia/Theme/theme.dart';
 
 void main() {
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         "/": (context) => const BasikDisplayWidget(),
+        "/about": (context) => const AboutHomeWidget(),
       },
       initialRoute: "/",
     );

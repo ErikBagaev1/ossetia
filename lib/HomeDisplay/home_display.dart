@@ -34,15 +34,13 @@ class HomeDisplayWidget extends StatelessWidget {
                 ),
                 child: const Column(
                   children: [
-                    textCard(text: "Hotel Near You "),
-                    placeCard(
+                    textCard(text: "Отели рядом"),
+                    placeCard.home(
                       height: 232,
                       widht: 145,
                     ),
-                    textCard(
-                      text: "Explore Place",
-                    ),
-                    placeCard(height: 145, widht: 145)
+                    textCard(text: "АРТ-объекты"),
+                    placeCard.art(height: 144, widht: 145)
                   ],
                 ),
               ),

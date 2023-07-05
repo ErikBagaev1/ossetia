@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class HomeModel {
   final String image;
   final String name;
