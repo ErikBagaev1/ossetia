@@ -9,7 +9,7 @@ class HomeDisplayWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Storage storage = Storage();
-    
+
     return Scaffold(
       body: Column(
         children: [
@@ -37,7 +37,6 @@ class HomeDisplayWidget extends StatelessWidget {
                           return const CircularProgressIndicator();
                         }
                         return Container();
-                        ;
                       }),
                 )
               ],
@@ -61,13 +60,13 @@ class HomeDisplayWidget extends StatelessWidget {
                     placeCard.art(
                       height: 232,
                       widht: 145,
-                  
+                      folder: 'otel/',
                     ),
                     textCard(text: "АРТ-объекты"),
                     placeCard.art(
                       height: 144,
                       widht: 145,
-                    
+                      folder: 'art/',
                     )
                   ],
                 ),

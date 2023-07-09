@@ -10,12 +10,14 @@ class AboutHomeWidget extends StatefulWidget {
 class _AboutHomeWidgetState extends State<AboutHomeWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ElevatedButton(
-        child: const Icon(Icons.arrow_back_ios),
-        onPressed: () {
-          Navigator.pop(context);
-        },
+    return SafeArea(
+      child: Scaffold(
+        body: ElevatedButton(
+          child: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
     );
   }

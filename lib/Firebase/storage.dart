@@ -3,7 +3,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 class Storage {
   final FirebaseStorage storage = FirebaseStorage.instance;
   Future<String> downLoadImg(String imageName) async {
-    print(imageName);
     String downLoadUrl = await storage.ref(imageName).getDownloadURL();
     return downLoadUrl;
   }
