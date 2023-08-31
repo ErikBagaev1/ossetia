@@ -14,3 +14,12 @@ MaterialColor materialWhite = MaterialColor(0xFFFFFFFF, {
 });
 const grayColor = Color(0xFF787878);
 const blueColor = Color(0xFF2B66FF);
+
+final shapeDecorationWhite = ShapeDecoration(
+  color: Colors.white.withOpacity(0.4),
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+);
+final shapeDecorationBlack = ShapeDecoration(
+  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.3),
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)),
+);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ossetia/HomeDisplay/models.dart';
 
 class AboutHomeWidget extends StatefulWidget {
   const AboutHomeWidget({super.key});
@@ -8,15 +9,18 @@ class AboutHomeWidget extends StatefulWidget {
 }
 
 class _AboutHomeWidgetState extends State<AboutHomeWidget> {
+  final List<HomeModel> about = [
+    HomeModel(
+        image: '', name: 'Владикавказ', location: '', price: 2000, stars: 0)
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: ElevatedButton(
-          child: const Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+        appBar: AppBar(
+          title: Text(about[0].name),
+          backgroundColor: Colors.white,
+          elevation: 0,
         ),
       ),
     );
