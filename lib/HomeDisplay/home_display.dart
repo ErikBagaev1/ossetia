@@ -20,24 +20,10 @@ class HomeDisplayWidget extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   decoration: const BoxDecoration(color: blueColor),
-                  child: FutureBuilder(
-                      future: storage.downLoadImg('main/ossetia.jpeg'),
-                      builder: (BuildContext context,
-                          AsyncSnapshot<String> snapshot) {
-                        if (snapshot.connectionState == ConnectionState.done &&
-                            snapshot.hasData) {
-                          return Image.network(
-                            snapshot.data!,
-                            fit: BoxFit.fill,
-                          );
-                        }
-                        if (snapshot.connectionState ==
-                                ConnectionState.waiting ||
-                            !snapshot.hasData) {
-                          return const CircularProgressIndicator();
-                        }
-                        return Container();
-                      }),
+                  child: Image.asset(
+                    'assets/images/ossetia.jpeg',
+                    fit: BoxFit.fill,
+                  ),
                 )
               ],
             ),
