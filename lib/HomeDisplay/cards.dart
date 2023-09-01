@@ -42,23 +42,23 @@ class _placeCardState extends State<placeCard> {
                 ),
                 width: widget.widht,
                 height: widget.height,
-                child: Stack(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image.asset(
-                        widget.folder[index].image,
-                        width: widget.widht,
-                        height: widget.height,
-                        fit: BoxFit.fill,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "/about",
+                        arguments: widget.folder[index]);
+                  },
+                  child: Stack(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          widget.folder[index].image,
+                          width: widget.widht,
+                          height: widget.height,
+                          fit: BoxFit.fill,
+                        ),
                       ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, "/about",
-                            arguments: widget.folder);
-                      },
-                      child: Container(
+                      Container(
                         width: widget.widht,
                         height: widget.height,
                         decoration: BoxDecoration(
@@ -73,53 +73,54 @@ class _placeCardState extends State<placeCard> {
                           ),
                         ),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: IconButton(
-                        onPressed: () {
-                          if (flag) {
-                            flag = false;
-                          } else {
-                            flag = true;
-                          }
-                          setState(() {});
-                        },
-                        icon: Icon(
-                          Icons.favorite,
-                          color: flag ? Colors.red : Colors.grey,
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: IconButton(
+                          onPressed: () {
+                            if (flag) {
+                              flag = false;
+                            } else {
+                              flag = true;
+                            }
+                            setState(() {});
+                          },
+                          icon: Icon(
+                            Icons.favorite,
+                            color: flag ? Colors.red : Colors.grey,
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          textAbout(
-                            text: '${widget.folder[index].name}',
-                            size: 12,
-                          ),
-                          textAbout(
-                            text: widget.folder[index].location,
-                            size: 10,
-                          ),
-                          if (widget.folder[index].image
-                              .startsWith('assets/house/')) ...{
-                            Row(
-                              children: [
-                                textAbout(
-                                  text: '\$${widget.folder[index].price}/сутки',
-                                  size: 12,
-                                ),
-                              ],
-                            )
-                          }
-                        ],
-                      ),
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            textAbout(
+                              text: '${widget.folder[index].name}',
+                              size: 12,
+                            ),
+                            textAbout(
+                              text: widget.folder[index].location,
+                              size: 10,
+                            ),
+                            if (widget.folder[index].image
+                                .startsWith('assets/house/')) ...{
+                              Row(
+                                children: [
+                                  textAbout(
+                                    text:
+                                        '\$${widget.folder[index].price}/сутки',
+                                    size: 12,
+                                  ),
+                                ],
+                              )
+                            }
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             );
