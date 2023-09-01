@@ -19,8 +19,6 @@ class placeCard extends StatefulWidget {
 }
 
 class _placeCardState extends State<placeCard> {
-  var flag = false;
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -77,16 +75,18 @@ class _placeCardState extends State<placeCard> {
                         alignment: Alignment.topRight,
                         child: IconButton(
                           onPressed: () {
-                            if (flag) {
-                              flag = false;
+                            if (widget.folder[index].isFavorite) {
+                              widget.folder[index].isFavorite = false;
                             } else {
-                              flag = true;
+                              widget.folder[index].isFavorite = true;
                             }
                             setState(() {});
                           },
                           icon: Icon(
                             Icons.favorite,
-                            color: flag ? Colors.red : Colors.grey,
+                            color: widget.folder[index].isFavorite
+                                ? Colors.red
+                                : Colors.grey,
                           ),
                         ),
                       ),
