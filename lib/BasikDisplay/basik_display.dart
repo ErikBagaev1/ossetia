@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ossetia/FavoriteDisplay/favorite_display.dart';
 import 'package:ossetia/HomeDisplay/home_display.dart';
+import 'package:ossetia/HomeDisplay/lists.dart';
+import 'package:ossetia/HomeDisplay/models.dart';
 import 'package:ossetia/ProfileDisplay/profile_display.dart';
 import 'package:ossetia/Theme/theme.dart';
 
@@ -12,11 +15,13 @@ class BasikDisplayWidget extends StatefulWidget {
 
 class _BasikDisplayWidgetState extends State<BasikDisplayWidget> {
   int _selectedTab = 0;
+
   void onSelectedTab(int index) {
     // ignore: unrelated_type_equality_checks
     if (onSelectedTab == index) return;
     setState(() {
       _selectedTab = index;
+     
     });
   }
 
@@ -28,7 +33,7 @@ class _BasikDisplayWidgetState extends State<BasikDisplayWidget> {
         children: const [
           HomeDisplayWidget(),
           Scaffold(),
-          Scaffold(),
+          FavoriteDisplayWidget(),
           ProfileWidget(),
         ],
       ),

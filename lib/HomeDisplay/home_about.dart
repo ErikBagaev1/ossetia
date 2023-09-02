@@ -67,7 +67,7 @@ class _AppAboutBarState extends State<AppAboutBar> {
             child: IconButton(
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.pop(context, true);
                 }),
           ),
           Container(

@@ -1,6 +1,7 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:ossetia/FavoriteDisplay/favorite_display.dart';
 import 'package:ossetia/Theme/theme.dart';
 
 class placeCard extends StatefulWidget {

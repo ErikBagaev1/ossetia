@@ -1,5 +1,6 @@
 import 'package:ossetia/HomeDisplay/models.dart';
 
+List<dynamic> favorite = [];
 List<HomeModel> homeList = [
   HomeModel(
     image: 'assets/house/aleksandrovski1.jpg',
