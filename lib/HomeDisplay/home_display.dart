@@ -1,7 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:ossetia/HomeDisplay/place_card.dart';
+
+import 'package:ossetia/HomeDisplay/lists.dart';
+import 'package:ossetia/HomeDisplay/cards.dart';
 import 'package:ossetia/Theme/theme.dart';
 
+@RoutePage()
 class HomeDisplayWidget extends StatelessWidget {
   const HomeDisplayWidget({super.key});
 
@@ -15,7 +19,57 @@ class HomeDisplayWidget extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
+                  width: double.infinity,
                   decoration: const BoxDecoration(color: blueColor),
+                  child: Image.asset(
+                    'assets/images/ossetia.jpeg',
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                Column(
+                  children: [
+                    const SizedBox(
+                      height: 160,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 40,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: shapeDecorationWhite,
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 12),
+                              child: Center(
+                                child: Text(
+                                  'Оссетия',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                              height: 40,
+                              width: 40,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: shapeDecorationWhite,
+                              child: const Padding(
+                                padding: EdgeInsets.all(4.0),
+                                child: Icon(
+                                  Icons.notifications,
+                                  color: Colors.white,
+                                ),
+                              ))
+                        ],
+                      ),
+                    ),
+                  ],
                 )
               ],
             ),
@@ -23,7 +77,7 @@ class HomeDisplayWidget extends StatelessWidget {
           Expanded(
             flex: 8,
             child: Container(
-              color: blueColor,
+              color: Colors.black,
               child: Container(
                 decoration: const BoxDecoration(
                   color: Colors.white,
@@ -32,15 +86,20 @@ class HomeDisplayWidget extends StatelessWidget {
                     topRight: Radius.circular(20),
                   ),
                 ),
-                child: const Column(
+                child: Column(
                   children: [
-                    textCard(text: "Отели рядом"),
-                    placeCard.home(
-                      height: 232,
+                    const textCard(text: "Отели рядом"),
+                    placeCard(
+                      height: 225,
                       widht: 145,
+                      folder: homeList,
                     ),
-                    textCard(text: "АРТ-объекты"),
-                    placeCard.art(height: 144, widht: 145)
+                    const textCard(text: "АРТ-объекты"),
+                    placeCard(
+                      height: 145,
+                      widht: 145,
+                      folder: artList,
+                    )
                   ],
                 ),
               ),

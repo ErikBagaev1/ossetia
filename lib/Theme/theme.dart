@@ -14,3 +14,28 @@ MaterialColor materialWhite = MaterialColor(0xFFFFFFFF, {
 });
 const grayColor = Color(0xFF787878);
 const blueColor = Color(0xFF2B66FF);
+
+final shapeDecorationWhite = ShapeDecoration(
+  color: Colors.white.withOpacity(0.4),
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+);
+final shapeDecorationBlack = ShapeDecoration(
+  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.3),
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)),
+);
+
+const textStyleBig = TextStyle(
+  color: Color(0xFF323232),
+  fontSize: 16,
+  fontFamily: 'SF Pro',
+  fontWeight: FontWeight.w600,
+  letterSpacing: 0.06,
+);
+const textStyleSmall = TextStyle(
+  color: Color(0xFF787878),
+  fontSize: 12,
+  fontFamily: 'SF Pro',
+  fontWeight: FontWeight.w400,
+  height: 1.30,
+  letterSpacing: 0.02,
+);

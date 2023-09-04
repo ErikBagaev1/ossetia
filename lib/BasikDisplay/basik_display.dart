@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:ossetia/HomeDisplay/home_display.dart';
 import 'package:ossetia/Theme/theme.dart';
+import 'package:ossetia/router/router.dart';
 
+@RoutePage()
 class BasikDisplayWidget extends StatefulWidget {
   const BasikDisplayWidget({super.key});
 
@@ -10,75 +12,76 @@ class BasikDisplayWidget extends StatefulWidget {
 }
 
 class _BasikDisplayWidgetState extends State<BasikDisplayWidget> {
-  int _selectedTab = 0;
-  void onSelectedTab(int index) {
+  void onSelectedTab(int index, TabsRouter tabsRouter) {
     // ignore: unrelated_type_equality_checks
     if (onSelectedTab == index) return;
-    setState(() {
-      _selectedTab = index;
-    });
+    setState(() {});
+    tabsRouter.setActiveIndex(index);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: IndexedStack(
-        index: _selectedTab,
-        children: [
-          HomeDisplayWidget(),
-          HomeDisplayWidget(),
-          HomeDisplayWidget(),
-          HomeDisplayWidget(),
+    return AutoTabsRouter(
+        routes: const [
+          HomeDisplayRoute(),
+          FavoriteDisplayRoute(),
+          FavoriteDisplayRoute(),
+          FavoriteDisplayRoute()
         ],
-      ),
-      bottomNavigationBar: Container(
-        height: 65,
-        decoration: const BoxDecoration(
-          border: Border(
-            top: BorderSide(
-              color: grayColor,
-              width: 0.4,
-            ),
-          ),
-        ),
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          iconSize: 27,
-          unselectedFontSize: 14,
-          currentIndex: _selectedTab,
-          unselectedItemColor: grayColor,
-          selectedItemColor: blueColor,
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home_rounded,
+        builder: (context, child) {
+          final tabsRouter = AutoTabsRouter.of(context);
+
+          return Scaffold(
+            body: child,
+            bottomNavigationBar: Container(
+              height: 65,
+              decoration: const BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: grayColor,
+                    width: 0.4,
+                  ),
+                ),
               ),
-              label: 'Дом',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.map,
+              child: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                iconSize: 27,
+                unselectedFontSize: 14,
+                currentIndex: tabsRouter.activeIndex,
+                unselectedItemColor: grayColor,
+                selectedItemColor: blueColor,
+                showSelectedLabels: true,
+                showUnselectedLabels: true,
+                items: const [
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.map,
+                    ),
+                    label: 'Места',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.book,
+                    ),
+                    label: 'Культура',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.favorite_border,
+                    ),
+                    label: 'Избранное',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.person,
+                    ),
+                    label: 'Профиль',
+                  ),
+                ],
+                onTap: (index) => onSelectedTab(index, tabsRouter),
               ),
-              label: 'Места',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.favorite_border,
-              ),
-              label: 'Избранное',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person,
-              ),
-              label: 'Профиль',
-            ),
-          ],
-          onTap: (onSelectedTab),
-        ),
-      ),
-    );
+          );
+        });
   }
 }
