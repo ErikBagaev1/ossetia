@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:ossetia/BasikDisplay/basik_display.dart';
+import 'package:ossetia/CultureDisplay/culture_display.dart';
 import 'package:ossetia/FavoriteDisplay/favorite_display.dart';
 import 'package:ossetia/HomeDisplay/about_display.dart';
 import 'package:ossetia/HomeDisplay/home_display.dart';
@@ -16,6 +17,10 @@ class AppRouter extends _$AppRouter {
           path: '/',
           maintainState: false,
           children: [
+            AutoRoute(
+                page: CultureDisplayRoute.page,
+                maintainState: false,
+                path: 'culture'),
             AutoRoute(
                 page: FavoriteDisplayRoute.page,
                 maintainState: false,

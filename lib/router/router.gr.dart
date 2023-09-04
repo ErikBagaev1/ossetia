@@ -31,6 +31,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const BasikDisplayWidget(),
       );
     },
+      CultureDisplayRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CultureDisplayWidget(),
+      );
+    },
     FavoriteDisplayRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -97,6 +103,19 @@ class BasikDisplayRoute extends PageRouteInfo<void> {
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
+/// generated route for
+/// [CultureDisplayRoute]
+class CultureDisplayRoute extends PageRouteInfo<void> {
+  const CultureDisplayRoute({List<PageRouteInfo>? children})
+      : super(
+          CultureDisplayRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CultureDisplayWidget';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
 
 /// generated route for
 /// [FavoriteDisplayRoute]
@@ -111,6 +130,7 @@ class FavoriteDisplayRoute extends PageRouteInfo<void> {
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
+
 
 /// generated route for
 /// [HomeDisplayRoute]
