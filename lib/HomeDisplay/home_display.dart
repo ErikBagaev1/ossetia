@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ossetia/HomeDisplay/lists.dart';
 import 'package:ossetia/HomeDisplay/cards.dart';
 import 'package:ossetia/Theme/theme.dart';
 
+@RoutePage()
 class HomeDisplayWidget extends StatelessWidget {
   const HomeDisplayWidget({super.key});
 
@@ -42,7 +44,7 @@ class HomeDisplayWidget extends StatelessWidget {
                               padding: EdgeInsets.symmetric(horizontal: 12),
                               child: Center(
                                 child: Text(
-                                  'Владикавказ',
+                                  'Оссетия',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 16,
@@ -88,13 +90,13 @@ class HomeDisplayWidget extends StatelessWidget {
                   children: [
                     const textCard(text: "Отели рядом"),
                     placeCard(
-                      height: 232,
+                      height: 225,
                       widht: 145,
                       folder: homeList,
                     ),
                     const textCard(text: "АРТ-объекты"),
                     placeCard(
-                      height: 144,
+                      height: 145,
                       widht: 145,
                       folder: artList,
                     )

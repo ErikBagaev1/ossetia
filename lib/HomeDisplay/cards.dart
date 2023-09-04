@@ -1,8 +1,10 @@
 // ignore_for_file: camel_case_types
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:ossetia/FavoriteDisplay/favorite_display.dart';
+
 import 'package:ossetia/Theme/theme.dart';
+import 'package:ossetia/router/router.dart';
 
 class placeCard extends StatefulWidget {
   final double height;
@@ -43,8 +45,8 @@ class _placeCardState extends State<placeCard> {
                 height: widget.height,
                 child: InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, "/about",
-                        arguments: widget.folder[index]);
+                    AutoRouter.of(context)
+                        .push(AboutHomeRoute(about: widget.folder[index]));
                   },
                   child: Stack(
                     children: [

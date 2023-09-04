@@ -1,10 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ossetia/Theme/theme.dart';
 
+@RoutePage()
 class AboutHomeWidget extends StatefulWidget {
-  const AboutHomeWidget({super.key});
-
+  const AboutHomeWidget({super.key, required this.about});
+  final dynamic about;
   @override
   State<AboutHomeWidget> createState() => _AboutHomeWidgetState();
 }
@@ -12,8 +14,6 @@ class AboutHomeWidget extends StatefulWidget {
 class _AboutHomeWidgetState extends State<AboutHomeWidget> {
   @override
   Widget build(BuildContext context) {
-    dynamic about =
-        (ModalRoute.of(context)?.settings.arguments ?? '') as dynamic;
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
@@ -25,15 +25,15 @@ class _AboutHomeWidgetState extends State<AboutHomeWidget> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    AboutScreenTop(about: about),
+                    AboutScreenTop(about: widget.about),
                     const AboutUs(),
                     const ServicesFull()
                   ],
                 ),
               ),
             ),
-            AppAboutBar(about: about),
-            BottomAboutBar(about: about)
+            AppAboutBar(about: widget.about),
+            BottomAboutBar(about: widget.about)
           ],
         ),
       ),

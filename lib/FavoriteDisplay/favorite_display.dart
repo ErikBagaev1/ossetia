@@ -1,9 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:ossetia/HomeDisplay/cards.dart';
 import 'package:ossetia/HomeDisplay/lists.dart';
-import 'package:ossetia/HomeDisplay/models.dart';
-import 'package:ossetia/Theme/theme.dart';
+import 'package:ossetia/router/router.dart';
 
+@RoutePage()
 class FavoriteDisplayWidget extends StatefulWidget {
   const FavoriteDisplayWidget({super.key});
 
@@ -38,13 +38,7 @@ class _FavoriteDisplayWidgetState extends State<FavoriteDisplayWidget> {
       }
     }
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              setState(() {});
-            },
-            icon: const Icon(Icons.restart_alt)),
-      ),
+      appBar: AppBar(),
       body: ListView.builder(
           itemCount: favorite.length,
           scrollDirection: Axis.vertical,
@@ -68,8 +62,8 @@ class _FavoriteDisplayWidgetState extends State<FavoriteDisplayWidget> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
-                        onTap: () => Navigator.pushNamed(context, "/about",
-                            arguments: favorite[index]),
+                        onTap: () => AutoRouter.of(context)
+                            .push(AboutHomeRoute(about: favorite[index])),
                         child: Stack(
                           children: [
                             Row(
@@ -86,7 +80,7 @@ class _FavoriteDisplayWidgetState extends State<FavoriteDisplayWidget> {
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(5.0),
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
