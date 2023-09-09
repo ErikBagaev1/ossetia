@@ -15,11 +15,11 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: BasikDisplayRoute.page,
           path: '/',
-          maintainState: false,
+          maintainState: true,
           children: [
             AutoRoute(
                 page: CultureDisplayRoute.page,
-                maintainState: false,
+                maintainState: true,
                 path: 'culture'),
             AutoRoute(
                 page: FavoriteDisplayRoute.page,
@@ -34,7 +34,7 @@ class AppRouter extends _$AppRouter {
         ),
         AutoRoute(
           page: AboutHomeRoute.page,
-          maintainState: false,
+          maintainState: true,
         ),
 
         /// routes go here

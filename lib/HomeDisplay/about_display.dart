@@ -67,7 +67,7 @@ class _AppAboutBarState extends State<AppAboutBar> {
             child: IconButton(
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () {
-                  Navigator.pop(context, true);
+                  AutoRouter.of(context).pop();
                 }),
           ),
           Container(

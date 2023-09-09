@@ -14,6 +14,7 @@ MaterialColor materialWhite = MaterialColor(0xFFFFFFFF, {
 });
 const grayColor = Color(0xFF787878);
 const blueColor = Color(0xFF2B66FF);
+const redColor = Color.fromARGB(255, 247, 16, 0);
 
 final shapeDecorationWhite = ShapeDecoration(
   color: Colors.white.withOpacity(0.4),

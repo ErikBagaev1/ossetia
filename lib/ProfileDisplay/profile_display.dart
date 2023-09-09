@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class ProfileWidget extends StatelessWidget {
   const ProfileWidget({super.key});
 

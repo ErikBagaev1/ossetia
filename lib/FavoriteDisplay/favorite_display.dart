@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:ossetia/HomeDisplay/lists.dart';
+import 'package:ossetia/Theme/theme.dart';
 import 'package:ossetia/router/router.dart';
 
 @RoutePage()
@@ -14,17 +15,6 @@ class FavoriteDisplayWidget extends StatefulWidget {
 class _FavoriteDisplayWidgetState extends State<FavoriteDisplayWidget> {
   @override
   Widget build(BuildContext context) {
-    // void _timer() {
-    //   Future.delayed(Duration(seconds: 10)).then((_) {
-    //     setState(() {
-    //       print("1 second closer to NYE!");
-    //       // Anything else you want
-    //     });
-    //     _timer();
-    //   });
-    // }
-
-    // _timer();
     List<dynamic> favorite = [];
     for (var i = 0; i < homeList.length; i++) {
       if (homeList[i].isFavorite) {
@@ -38,7 +28,13 @@ class _FavoriteDisplayWidgetState extends State<FavoriteDisplayWidget> {
       }
     }
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Center(
+            child: Text(
+          'Избранное',
+          style: TextStyle(fontWeight: FontWeight.w700, color: blueColor),
+        )),
+      ),
       body: ListView.builder(
           itemCount: favorite.length,
           scrollDirection: Axis.vertical,
