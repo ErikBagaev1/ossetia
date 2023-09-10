@@ -25,10 +25,26 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    AboutCultureRoute.name: (routeData) {
+      final args = routeData.argsAs<AboutCultureDisplayArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AboutCultureDisplay(
+          key: args.key,
+          cultureIndex: args.cultureIndex,
+        ),
+      );
+    },
     BasikDisplayRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const BasikDisplayWidget(),
+      );
+    },
+    ProfileRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProfileWidget(),
       );
     },
     CultureDisplayRoute.name: (routeData) {
@@ -91,6 +107,44 @@ class AboutHomeRouteArgs {
 }
 
 /// generated route for
+/// [AboutCultureRoute]
+class AboutCultureRoute extends PageRouteInfo<AboutCultureDisplayArgs> {
+  AboutCultureRoute({
+    Key? key,
+    required CultureModel cultureIndex,
+    List<PageRouteInfo>? children,
+  }) : super(
+          AboutCultureRoute.name,
+          args: AboutCultureDisplayArgs(
+            key: key,
+            cultureIndex: cultureIndex,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'AboutCultureDisplay';
+
+  static const PageInfo<AboutCultureDisplayArgs> page =
+      PageInfo<AboutCultureDisplayArgs>(name);
+}
+
+class AboutCultureDisplayArgs {
+  const AboutCultureDisplayArgs({
+    this.key,
+    required this.cultureIndex,
+  });
+
+  final Key? key;
+
+  final CultureModel cultureIndex;
+
+  @override
+  String toString() {
+    return 'AboutCultureDisplayArgs{key: $key, cultureIndex: $cultureIndex}';
+  }
+}
+
+/// generated route for
 /// [BasikDisplayRoute]
 class BasikDisplayRoute extends PageRouteInfo<void> {
   const BasikDisplayRoute({List<PageRouteInfo>? children})
@@ -142,6 +196,20 @@ class HomeDisplayRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeDisplayWidget';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProfileRoute]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          ProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileWidget';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

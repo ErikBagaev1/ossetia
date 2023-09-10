@@ -15,37 +15,45 @@ class _AboutCultureDisplayState extends State<AboutCultureDisplay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Center(
-            child: Text(
-          widget.cultureIndex.name,
-          style: const TextStyle(fontWeight: FontWeight.w600),
-        )),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Text(
-              widget.cultureIndex.about,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 18),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            pinned: true,
+            snap: true,
+            floating: true,
+            title: Center(
+              child: Text(
+                widget.cultureIndex.name,
+                style: const TextStyle(fontWeight: FontWeight.w600),
+              ),
             ),
           ),
-          Text(
-            widget.cultureIndex.description,
-            textAlign: TextAlign.justify,
+          SliverList(
+            delegate:
+                SliverChildBuilderDelegate((BuildContext context, int index) {
+              return Column(children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Text(
+                    widget.cultureIndex.about,
+                    textAlign: TextAlign.justify,
+                    style: const TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    widget.cultureIndex.description,
+                    textAlign: TextAlign.justify,
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                ),
+              ]);
+            }, childCount: 1),
           ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Icon(Icons.arrow_back),
-            ),
-          )
         ],
       ),
     );

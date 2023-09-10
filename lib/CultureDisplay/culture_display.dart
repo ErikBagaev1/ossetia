@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:ossetia/CultureDisplay/about_display.dart';
 import 'package:ossetia/CultureDisplay/list.dart';
 import 'package:ossetia/Theme/theme.dart';
+import 'package:ossetia/router/router.dart';
 
 @RoutePage()
 class CultureDisplayWidget extends StatefulWidget {
@@ -44,13 +44,8 @@ class _CultureDisplayWidgetState extends State<CultureDisplayWidget> {
                   height: 145,
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  AboutCultureDisplay(
-                                    cultureIndex: cultureList[index],
-                                  )));
+                      AutoRouter.of(context).push(
+                          AboutCultureRoute(cultureIndex: cultureList[index]));
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

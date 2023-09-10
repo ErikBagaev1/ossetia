@@ -9,7 +9,7 @@ class ProfileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Bagaev Erik Valerievich')),
+        title: const Center(child: Text('Настройки')),
         backgroundColor: Colors.white,
         elevation: 0,
       ),
