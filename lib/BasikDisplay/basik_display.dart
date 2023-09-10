@@ -24,9 +24,9 @@ class _BasikDisplayWidgetState extends State<BasikDisplayWidget> {
     return AutoTabsRouter(
         routes: const [
           HomeDisplayRoute(),
+          CultureDisplayRoute(),
           FavoriteDisplayRoute(),
-          FavoriteDisplayRoute(),
-          FavoriteDisplayRoute()
+          ProfileRoute()
         ],
         builder: (context, child) {
           final tabsRouter = AutoTabsRouter.of(context);
